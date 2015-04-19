@@ -9,22 +9,21 @@
 # just in case the developers decide against a dot-separator sometime in the
 # future
 ACT=$(curl -s https://github.com/TryGhost/Ghost/releases/latest | egrep -o '([0-9])+.([0-9])+.([0-9])+')
+echo "Latest version of Ghost is: $ACT"
 
 while true; do
-	echo "Latest version of Ghost is: $ACT"
 	read -p "Proceed with update? (y/n): " VER
-	# In a lot of the following loops I use ${ARG,,} notation where "ARG" is
-	# indicative of the answer read in by the prompt and ",," performs a lower-case
+	# In the following loops I use ${ARG,,} notation where "ARG" is indicative
+	# of the answer read in by the prompt and ",," performs a lower-case
 	# conversion
 	if [ ${VER,,} == "n" ]; then
 		echo "Exiting script"
-		# Normal exit
 		exit 0
 	elif [ ${VER,,} == "y" ]; then
 		echo "Continuing with version $ACT"
 		break
 	else
-		echo "Enter either "y" or "n""
+		echo "Enter either "y" or "n"!"
 	fi
 done
 
@@ -48,7 +47,7 @@ while true; do
 		echo "Created backup named ghost-backup-$DATE.tar.gz"
 		break
 	else
-		echo "Enter either "y" or "n""
+		echo "Enter either "y" or "n"!"
 	fi
 done
 
@@ -67,7 +66,7 @@ else
 			echo "Downloaded latest version to $(pwd)"
 			break
 		else
-			echo "Enter either "y" or "n""
+			echo "Enter either "y" or "n"!"
 		fi
 	done
 fi
@@ -94,7 +93,7 @@ if [ -f "ghost-latest.zip" ]; then
 			echo "Deleted ghost-latest.zip from $(pwd)"
 			break
 		else
-			echo "Enter either "y" or "n""
+			echo "Enter either "y" or "n"!"
 		fi
 	done
 fi
@@ -110,7 +109,7 @@ if [ ${BK,,} == "y" ]; then
 			echo "Deleted ghost-backup-$DATE.tar.gz from $(pwd)"
 			break
 		else
-			echo "Enter either "y" or "n""
+			echo "Enter either "y" or "n"!"
 		fi
 	done
 fi
