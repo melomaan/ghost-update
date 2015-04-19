@@ -4,11 +4,7 @@
 
 # Since the URL below actually redirects to the page with the latest version
 # number in the URL, using curl and egrep shows just the necessary version.
-# Wrapping a regular expression character class in parentheses allows to search
-# for multiple digits with any one character as a separator. The latter was done
-# just in case the developers decide against a dot-separator sometime in the
-# future
-ACT=$(curl -s https://github.com/TryGhost/Ghost/releases/latest | egrep -o '([0-9])+.([0-9])+.([0-9])+')
+ACT=$(curl -s https://github.com/TryGhost/Ghost/releases/latest | egrep -o '[0-9]+.[0-9]+.[0-9]+')
 echo "Latest version of Ghost is: $ACT"
 
 while true; do

@@ -13,6 +13,7 @@ I created this script to make it easier on myself when updating my Ghost blog in
 
 #### Changed
 - Edited version check loop so that it doesn't echo version number all the time.
+- Edited comment and code in regards to the regular expression's parentheses.
 
 ### [0.0.1] – 2015-04-16
 #### Added
