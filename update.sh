@@ -11,6 +11,22 @@ while true; do
 	fi
 done
 
+ACT=$(curl -s https://github.com/TryGhost/Ghost/releases/latest | egrep -o '([0-9])+.([0-9])+.([0-9])+')
+
+while true; do
+	echo "Latest version of Ghost is: $ACT"
+	read -p "Proceed with update? (y/n): " VER
+	if [ ${VER,,} == "n" ]; then
+		echo "Exiting script"
+		exit 1
+	elif [ ${VER,,} == "y" ]; then
+		echo "Continuing with version $ACT"
+		break
+	else
+		echo "Enter either "y" or "n""
+	fi
+done
+
 while true; do
 	read -p "Do you want a Tar backup to be created from $DIRECTORY? (y/n): " BK
 	if [ ${BK,,} == "n" ]; then
