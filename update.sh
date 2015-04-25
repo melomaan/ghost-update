@@ -33,13 +33,13 @@ while true; do
 done
 
 while true; do
-	read -p "Do you want a Tar backup to be created from $DIRECTORY? (y/n): " BK
+	read -p "Do you want a backup to be created from $DIRECTORY? (y/n): " BK
 	if [ ${BK,,} == "n" ]; then
 		echo "Continuing without backup"
 		break
 	elif [ ${BK,,} == "y" ]; then
 		DATE=$(date +%Y-%m-%d)
-		tar -cvf ghost-backup-$DATE.tar.gz $DIRECTORY > /dev/null
+		tar -zcvf ghost-backup-$DATE.tar.gz $DIRECTORY > /dev/null
 		echo "Created backup named ghost-backup-$DATE.tar.gz"
 		break
 	else
