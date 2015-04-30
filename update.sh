@@ -39,8 +39,8 @@ while true; do
 		break
 	elif [ ${BK,,} == "y" ]; then
 		DATE=$(date +%Y-%m-%d)
-		tar -zcvf ghost-backup-$DATE.tar.gz $DIRECTORY > /dev/null
-		echo "Created backup named ghost-backup-$DATE.tar.gz"
+		tar -C $DIRECTORY -zcvf ghost-backup-$DATE.tar.gz . > /dev/null
+		echo "Created backup named ghost-backup-$DATE.tar.gz at $(pwd)"
 		break
 	else
 		echo "Enter either "y" or "n"!"
@@ -73,7 +73,7 @@ echo "Deleted core/ from $DIRECTORY to prepare for update"
 unzip -uo ghost-latest.zip -d $DIRECTORY > /dev/null
 echo "Installed latest version of Ghost to $DIRECTORY"
 
-cd $DIRECTORY && npm install --production > /dev/null && cd .. > /dev/null
+cd $DIRECTORY && npm install --production > /dev/null && cd - > /dev/null
 echo "Installed new dependencies for Node.JS"
 
 pm2 restart ghost > /dev/null
