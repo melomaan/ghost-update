@@ -1,9 +1,49 @@
 # Ghost Update
-I created this script to make it easier on myself when updating my Ghost blog instance on Amazon's EC2. The reason why I created a separate repository just for this is because I wanted to learn a little more git via the command line and to motivate myself to keep updating this script with more functionality.
+This is the repository I created to both learn more about the workings of Git and to house this (small) script file, which updates a running instance of the Ghost blog. I am currently running my own Ghost blog on Amazon EC2 with the following information provided by `cat /proc/version`:
 
-Download the script via
+`Linux version 3.14.27-25.47.amzn1.i686 (mockbuild@gobi-build-60004) (gcc version 4.8.2 20140120 (Red Hat 4.8.2-16) (GCC) ) #1 SMP Wed Dec 17 18:36:32 UTC 2014`
+
+# Usage instructions
+This section is split into three sub-sections. The first sub-section covers how to download just the script file and nothing else. The second sub-section describes how to get the repository and how to extract the necessary file(s). The third sub-section shows how to make the script file an executable and how to run it.
+## Downloading just the script file
+Downloading only the script file can be accomplished by either navigating to the script file in GitHub, clicking on Raw and continuing by your own methods, or by pasting the following command into the terminal:
+
 `wget https://github.com/melomaan/ghost-update/raw/master/update.sh`
-or clone the repository, make the .sh file an executable with `chmod +x update.sh`, run with `./update.sh`, and follow prompts to what will hopefully be a clean update of your Ghost blog.
+
+After completing the download proceed to the last sub-section titled **Making into an executable**.
+## Obtaining entire repository
+To get the entire repository you can clone the repository with the command:
+
+`git clone https://github.com/melomaan/ghost-update.git`
+
+which creates a directory called *ghost-update*, initializes a *.git* directory inside it and pulls down all the files associated with that repository, but it does require a working installation of Git. If the cloning was successful, you can now navigate to the aforementioned folder and move on to the sub-section **Making into an executable**.
+
+The second option involves just clicking the **Download ZIP** button or copying the link and using *wget*:
+
+`wget https://github.com/melomaan/ghost-update/archive/master.zip`
+
+Both will download a *.zip* file of the master branch, which includes all the files necessary. Once the download has completed, extract the archive using:
+
+`unzip master.zip`
+
+Navigate to the now created *ghost-update-master* directory and proceed to the last sub-section titled **Making into an executable**.
+## Making into an executable
+Confirm you are in the correct directory by executing:
+
+`ls`
+
+and seeing in the output either just *update.sh*, or both *README.md* and *update.sh*. Next, type or paste in the command:
+
+`chmod +x update.sh`
+
+which will turn the script file into a file you can easily execute. Execution can be done via:
+
+`./update.sh`
+
+after which you can follow all the prompts to update your Ghost blog.
+
+# Change Log
+All notable changes to this project will be documented in this section. Inspired by [Keep a CHANGELOG](http://keepachangelog.com/).
 
 ## [Unreleased]
 ### Changed
