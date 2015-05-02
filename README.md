@@ -1,7 +1,5 @@
 # Ghost Update
-This is the repository I created to both learn more about the workings of Git and to house this (small) script file, which updates a running instance of the Ghost blog. I am currently running my own Ghost blog on Amazon EC2 with the following information provided by `cat /proc/version`:
-
-`Linux version 3.14.27-25.47.amzn1.i686 (mockbuild@gobi-build-60004) (gcc version 4.8.2 20140120 (Red Hat 4.8.2-16) (GCC) ) #1 SMP Wed Dec 17 18:36:32 UTC 2014`
+This is the repository I created to both learn more about the workings of Git and to house this (small) script file, which updates a running instance of the Ghost blog.
 
 # Usage instructions
 This section is split into three sub-sections. The first sub-section covers how to download just the script file and nothing else. The second sub-section describes how to get the repository and how to extract the necessary file(s). The third sub-section shows how to make the script file an executable and how to run it.
