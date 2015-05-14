@@ -49,7 +49,7 @@ All notable changes to this project will be documented in this section. Inspired
 
 ## [0.0.5] – 2015-05-14
 ### Changed
-- Trying to download ghost-latest.zip and being automatically rerouted to the newest version no longer works, which required me to change prompts and the source of the archive.
+- Trying to download ghost-latest.zip no longer downloads **ghost-latest.zip**, but rather instead of "latest" having the current version number, which required me to change prompts and the source of the archive.
 
 ## [0.0.4] – 2015-04-30
 ### Changed
