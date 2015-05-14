@@ -47,18 +47,18 @@ while true; do
 	fi
 done
 
-if [ ! -f "Ghost-$ACT.zip" ]; then
-	wget -q https://github.com/TryGhost/Ghost/releases/download/${ACT}/Ghost-${ACT}.zip
+if [ ! -f "ghost-$ACT.zip" ]; then
+	wget -q https://ghost.org/zip/ghost-${ACT}.zip
 	echo "Downloaded latest version to $(pwd)"
 else
 	while true; do
-		read -p "File Ghost-$ACT.zip already exists. Download again? (y/n): " DL
+		read -p "File ghost-$ACT.zip already exists. Download again? (y/n): " DL
 		if [ ${DL,,} == "n" ]; then
-			echo "Continuing with current Ghost-$ACT.zip file"
+			echo "Continuing with current ghost-$ACT.zip file"
 			break
 		elif [ ${DL,,} == "y" ]; then
 			# Overwrite current .zip file
-			wget -Nq https://github.com/TryGhost/Ghost/releases/download/${ACT}/Ghost-${ACT}.zip
+			wget -Nq https://ghost.org/zip/ghost-${ACT}.zip
 			echo "Downloaded latest version to $(pwd)"
 			break
 		else
@@ -70,7 +70,7 @@ fi
 rm -rf ${DIRECTORY}core/ > /dev/null
 echo "Deleted core/ from $DIRECTORY to prepare for update"
 
-unzip -uo Ghost-$ACT.zip -d $DIRECTORY > /dev/null
+unzip -uo ghost-$ACT.zip -d $DIRECTORY > /dev/null
 echo "Installed latest version of Ghost to $DIRECTORY"
 
 cd $DIRECTORY && npm install --production > /dev/null && cd - > /dev/null
@@ -79,14 +79,14 @@ echo "Installed new dependencies for Node.JS"
 pm2 restart ghost > /dev/null
 echo "Restarted Ghost. Refresh your browser"
 
-if [ -f "Ghost-$ACT.zip" ]; then
+if [ -f "ghost-$ACT.zip" ]; then
 	while true; do
-		read -p "Do you want to clean up downloaded Ghost-$ACT.zip? (y/n): " CLN
+		read -p "Do you want to clean up downloaded ghost-$ACT.zip? (y/n): " CLN
 		if [ ${CLN,,} = "n" ]; then
 			break
 		elif [ ${CLN,,} == "y" ]; then
-			rm -f Ghost-$ACT.zip
-			echo "Deleted Ghost-$ACT.zip from $(pwd)"
+			rm -f ghost-$ACT.zip
+			echo "Deleted ghost-$ACT.zip from $(pwd)"
 			break
 		else
 			echo "Enter either "y" or "n"!"
