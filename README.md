@@ -47,6 +47,10 @@ All notable changes to this project will be documented in this section. Inspired
 ### Changed
 - Add intermediary update if difference between current and latest version is too large.
 
+## [0.0.5] – 2015-05-14
+### Changed
+- Trying to download ghost-latest.zip and being automatically rerouted to the newest version no longer works, which required me to change prompts and the source of the archive.
+
 ## [0.0.4] – 2015-04-30
 ### Changed
 - No longer required to run script from parent directory of Ghost installation directory.
