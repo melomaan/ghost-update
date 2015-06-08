@@ -1,27 +1,6 @@
 #!/bin/bash
 # Üllar Seerme
-# Script updates Ghost blogging platform to latest version.
-
-# Since the URL below actually redirects to the page with the latest version
-# number in the URL, using curl and egrep shows just the necessary version.
-ACT=$(curl -s https://github.com/TryGhost/Ghost/releases/latest | egrep -o '[0-9]+.[0-9]+.[0-9]+')
-echo "Latest version of Ghost is: $ACT"
-
-while true; do
-	read -p "Proceed with update? (y/n): " VER
-	# In the following loops I use ${ARG,,} notation where "ARG" is indicative
-	# of the answer read in by the prompt and ",," performs a lower-case
-	# conversion
-	if [ ${VER,,} == "n" ]; then
-		echo "Exiting script"
-		exit 0
-	elif [ ${VER,,} == "y" ]; then
-		echo "Continuing with version $ACT"
-		break
-	else
-		echo "Enter either "y" or "n"!"
-	fi
-done
+# Script updates Ghost blogging platform to latest version
 
 while true; do
 	read -p "Enter the full path of the Ghost installation directory: " DIRECTORY
@@ -31,6 +10,35 @@ while true; do
 		echo "Path does not exist. Try again"
 	fi
 done
+
+VER=$(cat $DIRECTORY/package.json | grep "version" | cut -d ":" -f2 | sed 's/[ ",]//g')
+
+# Since the URL below actually redirects to the page with the latest version
+# number in the URL, using curl and egrep shows just the necessary version
+ACT=$(curl -s https://github.com/TryGhost/Ghost/releases/latest | egrep -o '[0-9]+.[0-9]+.[0-9]+')
+
+if [ ${VER} == ${ACT} ]; then
+	echo "Installed version of Ghost is the same version as the latest version ($ACT)"
+	read -p "Proceed with update anyway? (y/n): " REP
+else
+	echo "Installed version of Ghost is: $VER, but latest version is $ACT"
+	read -p "Proceed with update? (y/n): " REP
+fi
+
+# In the following instances I use ${ARG,,} notation where "ARG" is indicative
+# of the answer read in by the prompt and ",," performs a lower-case
+# conversion
+if [ ${REP,,} == "n" ]; then
+	echo "Exiting script"
+	exit 0
+elif [ ${REP,,} == "y" ]; then
+	echo "Continuing with version $ACT"
+	break
+else
+	while true; do
+		echo "Enter either "y" or "n"!"
+	done
+fi
 
 while true; do
 	read -p "Do you want a backup to be created from $DIRECTORY? (y/n): " BK

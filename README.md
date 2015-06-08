@@ -44,8 +44,10 @@ after which you can follow all the prompts to update your Ghost blog.
 All notable changes to this project will be documented in this section. Inspired by [Keep a CHANGELOG](http://keepachangelog.com/).
 
 ## [Unreleased]
-### Changed
-- Add intermediary update if difference between current and latest version is too large.
+
+## [0.0.6] – 2015-06-08
+### Added
+- A check for both the installed version number and the latest available version number. This was added because I found myself checking the latest version manually from the website and had forgotten, which version I was running on.
 
 ## [0.0.5] – 2015-05-14
 ### Changed
