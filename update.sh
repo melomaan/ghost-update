@@ -2,6 +2,20 @@
 # Üllar Seerme
 # Script updates Ghost blogging platform to latest version
 
+while getopts ":v" opt; do
+	case $opt in
+		v)
+			ACT=$(curl -s https://github.com/TryGhost/Ghost/releases/latest | egrep -o '[0-9]+.[0-9]+.[0-9]+')
+			echo "Latest version is $ACT"
+			exit 0
+			;;
+		\?)
+			echo "Invalid option: -$OPTARG" >&2
+			exit 1
+			;;
+	esac
+done
+
 while true; do
 	read -p "Enter the full path of the Ghost installation directory: " DIRECTORY
 	if [ -d $DIRECTORY ]; then

@@ -25,7 +25,7 @@ Both will download a *.zip* file of the master branch, which includes all the fi
 `unzip master.zip`
 
 Navigate to the now created *ghost-update-master* directory and proceed to the last sub-section titled **Making into an executable**.
-## Making into an executable
+## Making into an executable (and executing)
 Confirm you are in the correct directory by executing:
 
 `ls`
@@ -40,10 +40,25 @@ which will turn the script file into a file you can easily execute. Execution ca
 
 after which you can follow all the prompts to update your Ghost blog.
 
+If you only want to check what is the latest version of Ghost without doing anything else to the blog, then pass the -v flag to the script as such:
+
+`./update.sh -v`
+
+and an output of the latest version number will be shown. To proceed as usual just remove the flag.
+
 # Change Log
 All notable changes to this project will be documented in this section. Inspired by [Keep a CHANGELOG](http://keepachangelog.com/).
 
 ## [Unreleased]
+### Changed
+- Add "-d" flag for easy location input.
+
+## [0.0.7] – 2015-07-19
+### Added
+- A more usable way of checking the latest version via a shorthand "-v" flag option.
+
+### Changed
+- Script logic in terms of order of execution. Before you had to input the location of the install and only then found out the latest and installed version.
 
 ## [0.0.6] – 2015-06-08
 ### Added
