@@ -46,8 +46,8 @@ if [ ${REP,,} == "n" ]; then
 	echo "Exiting script"
 	exit 0
 elif [ ${REP,,} == "y" ]; then
+	pm2 stop all > /dev/null
 	echo "Continuing with version $ACT"
-	break
 else
 	while true; do
 		echo "Enter either "y" or "n"!"

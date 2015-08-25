@@ -53,6 +53,10 @@ All notable changes to this project will be documented in this section. Inspired
 ### Changed
 - Add "-d" flag for easy location input.
 
+## [0.0.8] – 2015-08-25
+### Added
+- Now stops Ghost's PM2 process before proceeding with update.
+
 ## [0.0.7] – 2015-07-19
 ### Added
 - A more usable way of checking the latest version via a shorthand "-v" flag option.
